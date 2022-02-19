@@ -2,11 +2,13 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.tsx?$/,
+                use: { loader: `awesome-typescript-loader`}
+            },
+            {
+                enforece: `pre`,
                 test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                }
+                loader: `source-map-loader`
             }
         ]
     }
