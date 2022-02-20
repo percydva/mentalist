@@ -10,3 +10,4 @@ scikit-learn[alldeps]
 seaborn>=0.10.1
 tensorflow
 transformers
+numpy
