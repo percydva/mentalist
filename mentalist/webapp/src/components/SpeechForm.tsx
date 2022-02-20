@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from 'axios';
+import {Button} from "./Button";
 
 export const SpeechForm = (props) => {
     const [speech, setSpeech] = useState('');
@@ -17,16 +18,16 @@ export const SpeechForm = (props) => {
 
     return(
         <>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor='userSpeech'>Speech</label>
-                <input id='userSpeech'
-                       type='text'
-                       name='speech'
-                       value={speech}
-                       onChange={handleChange}
+            <form method='post' onSubmit={handleSubmit}>
+                <label htmlFor='userSpeech'>How are you doing, buddy?</label>
+                <textarea id='userSpeech'
+                          placeholder="Tell me what's on your mind, I am all ears"
+                          name='speech'
+                          value={speech}
+                          onChange={handleChange}
                 />
 
-                <input type='submit' value='Analyze speech'/>
+                <Button type='submit' value="I have finished talking" />
             </form>
         </>
     );
