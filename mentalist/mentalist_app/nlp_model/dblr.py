@@ -1,7 +1,7 @@
-from .train import tokenizer, model, preprocessing, json, np, LogisticRegression, tf, torch
+from .train import tokenizer, model, preprocessing, json, np, LogisticRegression, tf, torch, os
 
 def load_model():
-    with open('/Users/percyd/Docs/Code/mentalist/mentalist/mentalist_app/nlp_model/model.json', 'r') as file:
+    with open(os.path.abspath('mentalist_app/nlp_model')+'/model.json', 'r') as file:
         dict_ = json.load(file)
     new_model = LogisticRegression()
     new_model.coef_ = np.array(dict_['coef'])

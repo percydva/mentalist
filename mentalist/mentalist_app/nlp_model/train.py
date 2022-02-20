@@ -9,10 +9,13 @@ from sklearn.preprocessing import LabelEncoder
 from transformers import DistilBertModel, DistilBertTokenizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split, KFold, cross_val_score
+import os
 
 tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
 model = DistilBertModel.from_pretrained('distilbert-base-uncased')
-df_train = pd.read_csv('/Users/percyd/Docs/Code/mentalist/mentalist/mentalist_app/nlp_model/both_train.csv')
+path = os.path.abspath('mentalist_app/nlp_model')+'/both_train.csv'
+print(path)
+df_train = pd.read_csv(path)
 df_train = df_train[:3000]
 
 def tokenize(df_train, tokenizer):
