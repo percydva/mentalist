@@ -1,2 +1,12 @@
 Django>=3.0,<4.0
 djangorestframework>=3.0.0,<4.0
+
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.8.0
+
+matplotlib==3.3.1
+pandas
+scikit-learn[alldeps]
+seaborn>=0.10.1
+tensorflow
+transformers
