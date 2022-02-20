@@ -2,7 +2,7 @@
   "name": "mentalist",
   "version": "1.0.0",
   "description": "Perform a classification task on mental issue via text",
-  "main": "index.js",   
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development --watch ./mentalist/webapp/src/index.tsx --output-path ./mentalist/webapp/static/webapp/js",
@@ -29,6 +29,7 @@
     "webpack-cli": "^4.9.2"
   },
   "dependencies": {
+    "axios": "^0.26.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }

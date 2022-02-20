@@ -8,3 +8,8 @@ class Hacker(models.Model):
         return self.nickname
 
 
+class Speech(models.Model):
+    speech = models.TextField(max_length=100000)
+
+
+

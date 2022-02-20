@@ -16,7 +16,17 @@
   \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"App\": () => (/* binding */ App)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nvar __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {\r\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\r\n    return new (P || (P = Promise))(function (resolve, reject) {\r\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\r\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\r\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\r\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\r\n    });\r\n};\r\n\r\nlet getJson = function (response) {\r\n    return __awaiter(this, void 0, void 0, function* () {\r\n        return yield response.json();\r\n    });\r\n};\r\nlet getAllHackers = function () {\r\n    return __awaiter(this, void 0, void 0, function* () {\r\n        const hackerData = fetch(\"./api/hacker\")\r\n            .then((response) => {\r\n            const inJson = getJson(response);\r\n            console.log(inJson);\r\n        });\r\n    });\r\n};\r\nconst App = (props) => {\r\n    const data = getAllHackers();\r\n    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,\r\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, \" Hello World 2\"),\r\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h2\", null, \"This is Django REST API and React app\")));\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./mentalist/webapp/src/app.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"App\": () => (/* binding */ App)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _components_SpeechForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/SpeechForm */ \"./mentalist/webapp/src/components/SpeechForm.tsx\");\n\r\n\r\nconst App = (props) => {\r\n    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,\r\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SpeechForm__WEBPACK_IMPORTED_MODULE_1__.SpeechForm, null)));\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./mentalist/webapp/src/app.tsx?");
+
+/***/ }),
+
+/***/ "./mentalist/webapp/src/components/SpeechForm.tsx":
+/*!********************************************************!*\
+  !*** ./mentalist/webapp/src/components/SpeechForm.tsx ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"SpeechForm\": () => (/* binding */ SpeechForm)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\nconst SpeechForm = (props) => {\r\n    const [speech, setSpeech] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');\r\n    const handleChange = (event) => {\r\n        setSpeech(event.target.value);\r\n    };\r\n    const handleSubmit = (event) => {\r\n        event.preventDefault();\r\n        axios__WEBPACK_IMPORTED_MODULE_1___default().post(\"./api/speech\", { speech: speech })\r\n            .catch((error) => { console.log(\"Cannot post speech!\"); });\r\n    };\r\n    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,\r\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"form\", { onSubmit: handleSubmit },\r\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"label\", { htmlFor: 'userSpeech' }, \"Speech\"),\r\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", { id: 'userSpeech', type: 'text', name: 'speech', value: speech, onChange: handleChange }),\r\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", { type: 'submit', value: 'Analyze speech' }))));\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./mentalist/webapp/src/components/SpeechForm.tsx?");
 
 /***/ }),
 
@@ -27,6 +37,296 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app */ \"./mentalist/webapp/src/app.tsx\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\r\n\r\n\r\nreact_dom__WEBPACK_IMPORTED_MODULE_2__.render(react__WEBPACK_IMPORTED_MODULE_1__.createElement(_app__WEBPACK_IMPORTED_MODULE_0__.App, null), document.getElementById('app'));\r\n\n\n//# sourceURL=webpack://mentalist/./mentalist/webapp/src/index.tsx?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/index.js":
+/*!*************************************!*\
+  !*** ./node_modules/axios/index.js ***!
+  \*************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nmodule.exports = __webpack_require__(/*! ./lib/axios */ \"./node_modules/axios/lib/axios.js\");\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/index.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/adapters/xhr.js":
+/*!************************************************!*\
+  !*** ./node_modules/axios/lib/adapters/xhr.js ***!
+  \************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\r\nvar settle = __webpack_require__(/*! ./../core/settle */ \"./node_modules/axios/lib/core/settle.js\");\r\nvar cookies = __webpack_require__(/*! ./../helpers/cookies */ \"./node_modules/axios/lib/helpers/cookies.js\");\r\nvar buildURL = __webpack_require__(/*! ./../helpers/buildURL */ \"./node_modules/axios/lib/helpers/buildURL.js\");\r\nvar buildFullPath = __webpack_require__(/*! ../core/buildFullPath */ \"./node_modules/axios/lib/core/buildFullPath.js\");\r\nvar parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ \"./node_modules/axios/lib/helpers/parseHeaders.js\");\r\nvar isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ \"./node_modules/axios/lib/helpers/isURLSameOrigin.js\");\r\nvar createError = __webpack_require__(/*! ../core/createError */ \"./node_modules/axios/lib/core/createError.js\");\r\nvar defaults = __webpack_require__(/*! ../defaults */ \"./node_modules/axios/lib/defaults.js\");\r\nvar Cancel = __webpack_require__(/*! ../cancel/Cancel */ \"./node_modules/axios/lib/cancel/Cancel.js\");\r\nmodule.exports = function xhrAdapter(config) {\r\n    return new Promise(function dispatchXhrRequest(resolve, reject) {\r\n        var requestData = config.data;\r\n        var requestHeaders = config.headers;\r\n        var responseType = config.responseType;\r\n        var onCanceled;\r\n        function done() {\r\n            if (config.cancelToken) {\r\n                config.cancelToken.unsubscribe(onCanceled);\r\n            }\r\n            if (config.signal) {\r\n                config.signal.removeEventListener('abort', onCanceled);\r\n            }\r\n        }\r\n        if (utils.isFormData(requestData)) {\r\n            delete requestHeaders['Content-Type'];\r\n        }\r\n        var request = new XMLHttpRequest();\r\n        if (config.auth) {\r\n            var username = config.auth.username || '';\r\n            var password = config.auth.password ? unescape(encodeURIComponent(config.auth.password)) : '';\r\n            requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);\r\n        }\r\n        var fullPath = buildFullPath(config.baseURL, config.url);\r\n        request.open(config.method.toUpperCase(), buildURL(fullPath, config.params, config.paramsSerializer), true);\r\n        request.timeout = config.timeout;\r\n        function onloadend() {\r\n            if (!request) {\r\n                return;\r\n            }\r\n            var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;\r\n            var responseData = !responseType || responseType === 'text' || responseType === 'json' ?\r\n                request.responseText : request.response;\r\n            var response = {\r\n                data: responseData,\r\n                status: request.status,\r\n                statusText: request.statusText,\r\n                headers: responseHeaders,\r\n                config: config,\r\n                request: request\r\n            };\r\n            settle(function _resolve(value) {\r\n                resolve(value);\r\n                done();\r\n            }, function _reject(err) {\r\n                reject(err);\r\n                done();\r\n            }, response);\r\n            request = null;\r\n        }\r\n        if ('onloadend' in request) {\r\n            request.onloadend = onloadend;\r\n        }\r\n        else {\r\n            request.onreadystatechange = function handleLoad() {\r\n                if (!request || request.readyState !== 4) {\r\n                    return;\r\n                }\r\n                if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {\r\n                    return;\r\n                }\r\n                setTimeout(onloadend);\r\n            };\r\n        }\r\n        request.onabort = function handleAbort() {\r\n            if (!request) {\r\n                return;\r\n            }\r\n            reject(createError('Request aborted', config, 'ECONNABORTED', request));\r\n            request = null;\r\n        };\r\n        request.onerror = function handleError() {\r\n            reject(createError('Network Error', config, null, request));\r\n            request = null;\r\n        };\r\n        request.ontimeout = function handleTimeout() {\r\n            var timeoutErrorMessage = config.timeout ? 'timeout of ' + config.timeout + 'ms exceeded' : 'timeout exceeded';\r\n            var transitional = config.transitional || defaults.transitional;\r\n            if (config.timeoutErrorMessage) {\r\n                timeoutErrorMessage = config.timeoutErrorMessage;\r\n            }\r\n            reject(createError(timeoutErrorMessage, config, transitional.clarifyTimeoutError ? 'ETIMEDOUT' : 'ECONNABORTED', request));\r\n            request = null;\r\n        };\r\n        if (utils.isStandardBrowserEnv()) {\r\n            var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?\r\n                cookies.read(config.xsrfCookieName) :\r\n                undefined;\r\n            if (xsrfValue) {\r\n                requestHeaders[config.xsrfHeaderName] = xsrfValue;\r\n            }\r\n        }\r\n        if ('setRequestHeader' in request) {\r\n            utils.forEach(requestHeaders, function setRequestHeader(val, key) {\r\n                if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {\r\n                    delete requestHeaders[key];\r\n                }\r\n                else {\r\n                    request.setRequestHeader(key, val);\r\n                }\r\n            });\r\n        }\r\n        if (!utils.isUndefined(config.withCredentials)) {\r\n            request.withCredentials = !!config.withCredentials;\r\n        }\r\n        if (responseType && responseType !== 'json') {\r\n            request.responseType = config.responseType;\r\n        }\r\n        if (typeof config.onDownloadProgress === 'function') {\r\n            request.addEventListener('progress', config.onDownloadProgress);\r\n        }\r\n        if (typeof config.onUploadProgress === 'function' && request.upload) {\r\n            request.upload.addEventListener('progress', config.onUploadProgress);\r\n        }\r\n        if (config.cancelToken || config.signal) {\r\n            onCanceled = function (cancel) {\r\n                if (!request) {\r\n                    return;\r\n                }\r\n                reject(!cancel || (cancel && cancel.type) ? new Cancel('canceled') : cancel);\r\n                request.abort();\r\n                request = null;\r\n            };\r\n            config.cancelToken && config.cancelToken.subscribe(onCanceled);\r\n            if (config.signal) {\r\n                config.signal.aborted ? onCanceled() : config.signal.addEventListener('abort', onCanceled);\r\n            }\r\n        }\r\n        if (!requestData) {\r\n            requestData = null;\r\n        }\r\n        request.send(requestData);\r\n    });\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/adapters/xhr.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/axios.js":
+/*!*****************************************!*\
+  !*** ./node_modules/axios/lib/axios.js ***!
+  \*****************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar utils = __webpack_require__(/*! ./utils */ \"./node_modules/axios/lib/utils.js\");\r\nvar bind = __webpack_require__(/*! ./helpers/bind */ \"./node_modules/axios/lib/helpers/bind.js\");\r\nvar Axios = __webpack_require__(/*! ./core/Axios */ \"./node_modules/axios/lib/core/Axios.js\");\r\nvar mergeConfig = __webpack_require__(/*! ./core/mergeConfig */ \"./node_modules/axios/lib/core/mergeConfig.js\");\r\nvar defaults = __webpack_require__(/*! ./defaults */ \"./node_modules/axios/lib/defaults.js\");\r\nfunction createInstance(defaultConfig) {\r\n    var context = new Axios(defaultConfig);\r\n    var instance = bind(Axios.prototype.request, context);\r\n    utils.extend(instance, Axios.prototype, context);\r\n    utils.extend(instance, context);\r\n    instance.create = function create(instanceConfig) {\r\n        return createInstance(mergeConfig(defaultConfig, instanceConfig));\r\n    };\r\n    return instance;\r\n}\r\nvar axios = createInstance(defaults);\r\naxios.Axios = Axios;\r\naxios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ \"./node_modules/axios/lib/cancel/Cancel.js\");\r\naxios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ \"./node_modules/axios/lib/cancel/CancelToken.js\");\r\naxios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ \"./node_modules/axios/lib/cancel/isCancel.js\");\r\naxios.VERSION = (__webpack_require__(/*! ./env/data */ \"./node_modules/axios/lib/env/data.js\").version);\r\naxios.all = function all(promises) {\r\n    return Promise.all(promises);\r\n};\r\naxios.spread = __webpack_require__(/*! ./helpers/spread */ \"./node_modules/axios/lib/helpers/spread.js\");\r\naxios.isAxiosError = __webpack_require__(/*! ./helpers/isAxiosError */ \"./node_modules/axios/lib/helpers/isAxiosError.js\");\r\nmodule.exports = axios;\r\nmodule.exports[\"default\"] = axios;\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/axios.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/Cancel.js":
+/*!*************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/Cancel.js ***!
+  \*************************************************/
+/***/ ((module) => {
+
+eval("\r\nfunction Cancel(message) {\r\n    this.message = message;\r\n}\r\nCancel.prototype.toString = function toString() {\r\n    return 'Cancel' + (this.message ? ': ' + this.message : '');\r\n};\r\nCancel.prototype.__CANCEL__ = true;\r\nmodule.exports = Cancel;\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/cancel/Cancel.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/CancelToken.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/CancelToken.js ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar Cancel = __webpack_require__(/*! ./Cancel */ \"./node_modules/axios/lib/cancel/Cancel.js\");\r\nfunction CancelToken(executor) {\r\n    if (typeof executor !== 'function') {\r\n        throw new TypeError('executor must be a function.');\r\n    }\r\n    var resolvePromise;\r\n    this.promise = new Promise(function promiseExecutor(resolve) {\r\n        resolvePromise = resolve;\r\n    });\r\n    var token = this;\r\n    this.promise.then(function (cancel) {\r\n        if (!token._listeners)\r\n            return;\r\n        var i;\r\n        var l = token._listeners.length;\r\n        for (i = 0; i < l; i++) {\r\n            token._listeners[i](cancel);\r\n        }\r\n        token._listeners = null;\r\n    });\r\n    this.promise.then = function (onfulfilled) {\r\n        var _resolve;\r\n        var promise = new Promise(function (resolve) {\r\n            token.subscribe(resolve);\r\n            _resolve = resolve;\r\n        }).then(onfulfilled);\r\n        promise.cancel = function reject() {\r\n            token.unsubscribe(_resolve);\r\n        };\r\n        return promise;\r\n    };\r\n    executor(function cancel(message) {\r\n        if (token.reason) {\r\n            return;\r\n        }\r\n        token.reason = new Cancel(message);\r\n        resolvePromise(token.reason);\r\n    });\r\n}\r\nCancelToken.prototype.throwIfRequested = function throwIfRequested() {\r\n    if (this.reason) {\r\n        throw this.reason;\r\n    }\r\n};\r\nCancelToken.prototype.subscribe = function subscribe(listener) {\r\n    if (this.reason) {\r\n        listener(this.reason);\r\n        return;\r\n    }\r\n    if (this._listeners) {\r\n        this._listeners.push(listener);\r\n    }\r\n    else {\r\n        this._listeners = [listener];\r\n    }\r\n};\r\nCancelToken.prototype.unsubscribe = function unsubscribe(listener) {\r\n    if (!this._listeners) {\r\n        return;\r\n    }\r\n    var index = this._listeners.indexOf(listener);\r\n    if (index !== -1) {\r\n        this._listeners.splice(index, 1);\r\n    }\r\n};\r\nCancelToken.source = function source() {\r\n    var cancel;\r\n    var token = new CancelToken(function executor(c) {\r\n        cancel = c;\r\n    });\r\n    return {\r\n        token: token,\r\n        cancel: cancel\r\n    };\r\n};\r\nmodule.exports = CancelToken;\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/cancel/CancelToken.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/isCancel.js":
+/*!***************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/isCancel.js ***!
+  \***************************************************/
+/***/ ((module) => {
+
+eval("\r\nmodule.exports = function isCancel(value) {\r\n    return !!(value && value.__CANCEL__);\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/cancel/isCancel.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/Axios.js":
+/*!**********************************************!*\
+  !*** ./node_modules/axios/lib/core/Axios.js ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\r\nvar buildURL = __webpack_require__(/*! ../helpers/buildURL */ \"./node_modules/axios/lib/helpers/buildURL.js\");\r\nvar InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ \"./node_modules/axios/lib/core/InterceptorManager.js\");\r\nvar dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ \"./node_modules/axios/lib/core/dispatchRequest.js\");\r\nvar mergeConfig = __webpack_require__(/*! ./mergeConfig */ \"./node_modules/axios/lib/core/mergeConfig.js\");\r\nvar validator = __webpack_require__(/*! ../helpers/validator */ \"./node_modules/axios/lib/helpers/validator.js\");\r\nvar validators = validator.validators;\r\nfunction Axios(instanceConfig) {\r\n    this.defaults = instanceConfig;\r\n    this.interceptors = {\r\n        request: new InterceptorManager(),\r\n        response: new InterceptorManager()\r\n    };\r\n}\r\nAxios.prototype.request = function request(configOrUrl, config) {\r\n    if (typeof configOrUrl === 'string') {\r\n        config = config || {};\r\n        config.url = configOrUrl;\r\n    }\r\n    else {\r\n        config = configOrUrl || {};\r\n    }\r\n    config = mergeConfig(this.defaults, config);\r\n    if (config.method) {\r\n        config.method = config.method.toLowerCase();\r\n    }\r\n    else if (this.defaults.method) {\r\n        config.method = this.defaults.method.toLowerCase();\r\n    }\r\n    else {\r\n        config.method = 'get';\r\n    }\r\n    var transitional = config.transitional;\r\n    if (transitional !== undefined) {\r\n        validator.assertOptions(transitional, {\r\n            silentJSONParsing: validators.transitional(validators.boolean),\r\n            forcedJSONParsing: validators.transitional(validators.boolean),\r\n            clarifyTimeoutError: validators.transitional(validators.boolean)\r\n        }, false);\r\n    }\r\n    var requestInterceptorChain = [];\r\n    var synchronousRequestInterceptors = true;\r\n    this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {\r\n        if (typeof interceptor.runWhen === 'function' && interceptor.runWhen(config) === false) {\r\n            return;\r\n        }\r\n        synchronousRequestInterceptors = synchronousRequestInterceptors && interceptor.synchronous;\r\n        requestInterceptorChain.unshift(interceptor.fulfilled, interceptor.rejected);\r\n    });\r\n    var responseInterceptorChain = [];\r\n    this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {\r\n        responseInterceptorChain.push(interceptor.fulfilled, interceptor.rejected);\r\n    });\r\n    var promise;\r\n    if (!synchronousRequestInterceptors) {\r\n        var chain = [dispatchRequest, undefined];\r\n        Array.prototype.unshift.apply(chain, requestInterceptorChain);\r\n        chain = chain.concat(responseInterceptorChain);\r\n        promise = Promise.resolve(config);\r\n        while (chain.length) {\r\n            promise = promise.then(chain.shift(), chain.shift());\r\n        }\r\n        return promise;\r\n    }\r\n    var newConfig = config;\r\n    while (requestInterceptorChain.length) {\r\n        var onFulfilled = requestInterceptorChain.shift();\r\n        var onRejected = requestInterceptorChain.shift();\r\n        try {\r\n            newConfig = onFulfilled(newConfig);\r\n        }\r\n        catch (error) {\r\n            onRejected(error);\r\n            break;\r\n        }\r\n    }\r\n    try {\r\n        promise = dispatchRequest(newConfig);\r\n    }\r\n    catch (error) {\r\n        return Promise.reject(error);\r\n    }\r\n    while (responseInterceptorChain.length) {\r\n        promise = promise.then(responseInterceptorChain.shift(), responseInterceptorChain.shift());\r\n    }\r\n    return promise;\r\n};\r\nAxios.prototype.getUri = function getUri(config) {\r\n    config = mergeConfig(this.defaults, config);\r\n    return buildURL(config.url, config.params, config.paramsSerializer).replace(/^\\?/, '');\r\n};\r\nutils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {\r\n    Axios.prototype[method] = function (url, config) {\r\n        return this.request(mergeConfig(config || {}, {\r\n            method: method,\r\n            url: url,\r\n            data: (config || {}).data\r\n        }));\r\n    };\r\n});\r\nutils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {\r\n    Axios.prototype[method] = function (url, data, config) {\r\n        return this.request(mergeConfig(config || {}, {\r\n            method: method,\r\n            url: url,\r\n            data: data\r\n        }));\r\n    };\r\n});\r\nmodule.exports = Axios;\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/core/Axios.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/InterceptorManager.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/axios/lib/core/InterceptorManager.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\r\nfunction InterceptorManager() {\r\n    this.handlers = [];\r\n}\r\nInterceptorManager.prototype.use = function use(fulfilled, rejected, options) {\r\n    this.handlers.push({\r\n        fulfilled: fulfilled,\r\n        rejected: rejected,\r\n        synchronous: options ? options.synchronous : false,\r\n        runWhen: options ? options.runWhen : null\r\n    });\r\n    return this.handlers.length - 1;\r\n};\r\nInterceptorManager.prototype.eject = function eject(id) {\r\n    if (this.handlers[id]) {\r\n        this.handlers[id] = null;\r\n    }\r\n};\r\nInterceptorManager.prototype.forEach = function forEach(fn) {\r\n    utils.forEach(this.handlers, function forEachHandler(h) {\r\n        if (h !== null) {\r\n            fn(h);\r\n        }\r\n    });\r\n};\r\nmodule.exports = InterceptorManager;\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/core/InterceptorManager.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/buildFullPath.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/core/buildFullPath.js ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL */ \"./node_modules/axios/lib/helpers/isAbsoluteURL.js\");\r\nvar combineURLs = __webpack_require__(/*! ../helpers/combineURLs */ \"./node_modules/axios/lib/helpers/combineURLs.js\");\r\nmodule.exports = function buildFullPath(baseURL, requestedURL) {\r\n    if (baseURL && !isAbsoluteURL(requestedURL)) {\r\n        return combineURLs(baseURL, requestedURL);\r\n    }\r\n    return requestedURL;\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/core/buildFullPath.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/createError.js":
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/core/createError.js ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar enhanceError = __webpack_require__(/*! ./enhanceError */ \"./node_modules/axios/lib/core/enhanceError.js\");\r\nmodule.exports = function createError(message, config, code, request, response) {\r\n    var error = new Error(message);\r\n    return enhanceError(error, config, code, request, response);\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/core/createError.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/dispatchRequest.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/core/dispatchRequest.js ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\r\nvar transformData = __webpack_require__(/*! ./transformData */ \"./node_modules/axios/lib/core/transformData.js\");\r\nvar isCancel = __webpack_require__(/*! ../cancel/isCancel */ \"./node_modules/axios/lib/cancel/isCancel.js\");\r\nvar defaults = __webpack_require__(/*! ../defaults */ \"./node_modules/axios/lib/defaults.js\");\r\nvar Cancel = __webpack_require__(/*! ../cancel/Cancel */ \"./node_modules/axios/lib/cancel/Cancel.js\");\r\nfunction throwIfCancellationRequested(config) {\r\n    if (config.cancelToken) {\r\n        config.cancelToken.throwIfRequested();\r\n    }\r\n    if (config.signal && config.signal.aborted) {\r\n        throw new Cancel('canceled');\r\n    }\r\n}\r\nmodule.exports = function dispatchRequest(config) {\r\n    throwIfCancellationRequested(config);\r\n    config.headers = config.headers || {};\r\n    config.data = transformData.call(config, config.data, config.headers, config.transformRequest);\r\n    config.headers = utils.merge(config.headers.common || {}, config.headers[config.method] || {}, config.headers);\r\n    utils.forEach(['delete', 'get', 'head', 'post', 'put', 'patch', 'common'], function cleanHeaderConfig(method) {\r\n        delete config.headers[method];\r\n    });\r\n    var adapter = config.adapter || defaults.adapter;\r\n    return adapter(config).then(function onAdapterResolution(response) {\r\n        throwIfCancellationRequested(config);\r\n        response.data = transformData.call(config, response.data, response.headers, config.transformResponse);\r\n        return response;\r\n    }, function onAdapterRejection(reason) {\r\n        if (!isCancel(reason)) {\r\n            throwIfCancellationRequested(config);\r\n            if (reason && reason.response) {\r\n                reason.response.data = transformData.call(config, reason.response.data, reason.response.headers, config.transformResponse);\r\n            }\r\n        }\r\n        return Promise.reject(reason);\r\n    });\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/core/dispatchRequest.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/enhanceError.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/axios/lib/core/enhanceError.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+eval("\r\nmodule.exports = function enhanceError(error, config, code, request, response) {\r\n    error.config = config;\r\n    if (code) {\r\n        error.code = code;\r\n    }\r\n    error.request = request;\r\n    error.response = response;\r\n    error.isAxiosError = true;\r\n    error.toJSON = function toJSON() {\r\n        return {\r\n            message: this.message,\r\n            name: this.name,\r\n            description: this.description,\r\n            number: this.number,\r\n            fileName: this.fileName,\r\n            lineNumber: this.lineNumber,\r\n            columnNumber: this.columnNumber,\r\n            stack: this.stack,\r\n            config: this.config,\r\n            code: this.code,\r\n            status: this.response && this.response.status ? this.response.status : null\r\n        };\r\n    };\r\n    return error;\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/core/enhanceError.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/mergeConfig.js":
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/core/mergeConfig.js ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar utils = __webpack_require__(/*! ../utils */ \"./node_modules/axios/lib/utils.js\");\r\nmodule.exports = function mergeConfig(config1, config2) {\r\n    config2 = config2 || {};\r\n    var config = {};\r\n    function getMergedValue(target, source) {\r\n        if (utils.isPlainObject(target) && utils.isPlainObject(source)) {\r\n            return utils.merge(target, source);\r\n        }\r\n        else if (utils.isPlainObject(source)) {\r\n            return utils.merge({}, source);\r\n        }\r\n        else if (utils.isArray(source)) {\r\n            return source.slice();\r\n        }\r\n        return source;\r\n    }\r\n    function mergeDeepProperties(prop) {\r\n        if (!utils.isUndefined(config2[prop])) {\r\n            return getMergedValue(config1[prop], config2[prop]);\r\n        }\r\n        else if (!utils.isUndefined(config1[prop])) {\r\n            return getMergedValue(undefined, config1[prop]);\r\n        }\r\n    }\r\n    function valueFromConfig2(prop) {\r\n        if (!utils.isUndefined(config2[prop])) {\r\n            return getMergedValue(undefined, config2[prop]);\r\n        }\r\n    }\r\n    function defaultToConfig2(prop) {\r\n        if (!utils.isUndefined(config2[prop])) {\r\n            return getMergedValue(undefined, config2[prop]);\r\n        }\r\n        else if (!utils.isUndefined(config1[prop])) {\r\n            return getMergedValue(undefined, config1[prop]);\r\n        }\r\n    }\r\n    function mergeDirectKeys(prop) {\r\n        if (prop in config2) {\r\n            return getMergedValue(config1[prop], config2[prop]);\r\n        }\r\n        else if (prop in config1) {\r\n            return getMergedValue(undefined, config1[prop]);\r\n        }\r\n    }\r\n    var mergeMap = {\r\n        'url': valueFromConfig2,\r\n        'method': valueFromConfig2,\r\n        'data': valueFromConfig2,\r\n        'baseURL': defaultToConfig2,\r\n        'transformRequest': defaultToConfig2,\r\n        'transformResponse': defaultToConfig2,\r\n        'paramsSerializer': defaultToConfig2,\r\n        'timeout': defaultToConfig2,\r\n        'timeoutMessage': defaultToConfig2,\r\n        'withCredentials': defaultToConfig2,\r\n        'adapter': defaultToConfig2,\r\n        'responseType': defaultToConfig2,\r\n        'xsrfCookieName': defaultToConfig2,\r\n        'xsrfHeaderName': defaultToConfig2,\r\n        'onUploadProgress': defaultToConfig2,\r\n        'onDownloadProgress': defaultToConfig2,\r\n        'decompress': defaultToConfig2,\r\n        'maxContentLength': defaultToConfig2,\r\n        'maxBodyLength': defaultToConfig2,\r\n        'transport': defaultToConfig2,\r\n        'httpAgent': defaultToConfig2,\r\n        'httpsAgent': defaultToConfig2,\r\n        'cancelToken': defaultToConfig2,\r\n        'socketPath': defaultToConfig2,\r\n        'responseEncoding': defaultToConfig2,\r\n        'validateStatus': mergeDirectKeys\r\n    };\r\n    utils.forEach(Object.keys(config1).concat(Object.keys(config2)), function computeConfigValue(prop) {\r\n        var merge = mergeMap[prop] || mergeDeepProperties;\r\n        var configValue = merge(prop);\r\n        (utils.isUndefined(configValue) && merge !== mergeDirectKeys) || (config[prop] = configValue);\r\n    });\r\n    return config;\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/core/mergeConfig.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/settle.js":
+/*!***********************************************!*\
+  !*** ./node_modules/axios/lib/core/settle.js ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar createError = __webpack_require__(/*! ./createError */ \"./node_modules/axios/lib/core/createError.js\");\r\nmodule.exports = function settle(resolve, reject, response) {\r\n    var validateStatus = response.config.validateStatus;\r\n    if (!response.status || !validateStatus || validateStatus(response.status)) {\r\n        resolve(response);\r\n    }\r\n    else {\r\n        reject(createError('Request failed with status code ' + response.status, response.config, null, response.request, response));\r\n    }\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/core/settle.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/transformData.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/core/transformData.js ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\r\nvar defaults = __webpack_require__(/*! ./../defaults */ \"./node_modules/axios/lib/defaults.js\");\r\nmodule.exports = function transformData(data, headers, fns) {\r\n    var context = this || defaults;\r\n    utils.forEach(fns, function transform(fn) {\r\n        data = fn.call(context, data, headers);\r\n    });\r\n    return data;\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/core/transformData.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/defaults.js":
+/*!********************************************!*\
+  !*** ./node_modules/axios/lib/defaults.js ***!
+  \********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar utils = __webpack_require__(/*! ./utils */ \"./node_modules/axios/lib/utils.js\");\r\nvar normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ \"./node_modules/axios/lib/helpers/normalizeHeaderName.js\");\r\nvar enhanceError = __webpack_require__(/*! ./core/enhanceError */ \"./node_modules/axios/lib/core/enhanceError.js\");\r\nvar DEFAULT_CONTENT_TYPE = {\r\n    'Content-Type': 'application/x-www-form-urlencoded'\r\n};\r\nfunction setContentTypeIfUnset(headers, value) {\r\n    if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {\r\n        headers['Content-Type'] = value;\r\n    }\r\n}\r\nfunction getDefaultAdapter() {\r\n    var adapter;\r\n    if (typeof XMLHttpRequest !== 'undefined') {\r\n        adapter = __webpack_require__(/*! ./adapters/xhr */ \"./node_modules/axios/lib/adapters/xhr.js\");\r\n    }\r\n    else if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {\r\n        adapter = __webpack_require__(/*! ./adapters/http */ \"./node_modules/axios/lib/adapters/xhr.js\");\r\n    }\r\n    return adapter;\r\n}\r\nfunction stringifySafely(rawValue, parser, encoder) {\r\n    if (utils.isString(rawValue)) {\r\n        try {\r\n            (parser || JSON.parse)(rawValue);\r\n            return utils.trim(rawValue);\r\n        }\r\n        catch (e) {\r\n            if (e.name !== 'SyntaxError') {\r\n                throw e;\r\n            }\r\n        }\r\n    }\r\n    return (encoder || JSON.stringify)(rawValue);\r\n}\r\nvar defaults = {\r\n    transitional: {\r\n        silentJSONParsing: true,\r\n        forcedJSONParsing: true,\r\n        clarifyTimeoutError: false\r\n    },\r\n    adapter: getDefaultAdapter(),\r\n    transformRequest: [function transformRequest(data, headers) {\r\n            normalizeHeaderName(headers, 'Accept');\r\n            normalizeHeaderName(headers, 'Content-Type');\r\n            if (utils.isFormData(data) ||\r\n                utils.isArrayBuffer(data) ||\r\n                utils.isBuffer(data) ||\r\n                utils.isStream(data) ||\r\n                utils.isFile(data) ||\r\n                utils.isBlob(data)) {\r\n                return data;\r\n            }\r\n            if (utils.isArrayBufferView(data)) {\r\n                return data.buffer;\r\n            }\r\n            if (utils.isURLSearchParams(data)) {\r\n                setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');\r\n                return data.toString();\r\n            }\r\n            if (utils.isObject(data) || (headers && headers['Content-Type'] === 'application/json')) {\r\n                setContentTypeIfUnset(headers, 'application/json');\r\n                return stringifySafely(data);\r\n            }\r\n            return data;\r\n        }],\r\n    transformResponse: [function transformResponse(data) {\r\n            var transitional = this.transitional || defaults.transitional;\r\n            var silentJSONParsing = transitional && transitional.silentJSONParsing;\r\n            var forcedJSONParsing = transitional && transitional.forcedJSONParsing;\r\n            var strictJSONParsing = !silentJSONParsing && this.responseType === 'json';\r\n            if (strictJSONParsing || (forcedJSONParsing && utils.isString(data) && data.length)) {\r\n                try {\r\n                    return JSON.parse(data);\r\n                }\r\n                catch (e) {\r\n                    if (strictJSONParsing) {\r\n                        if (e.name === 'SyntaxError') {\r\n                            throw enhanceError(e, this, 'E_JSON_PARSE');\r\n                        }\r\n                        throw e;\r\n                    }\r\n                }\r\n            }\r\n            return data;\r\n        }],\r\n    timeout: 0,\r\n    xsrfCookieName: 'XSRF-TOKEN',\r\n    xsrfHeaderName: 'X-XSRF-TOKEN',\r\n    maxContentLength: -1,\r\n    maxBodyLength: -1,\r\n    validateStatus: function validateStatus(status) {\r\n        return status >= 200 && status < 300;\r\n    },\r\n    headers: {\r\n        common: {\r\n            'Accept': 'application/json, text/plain, */*'\r\n        }\r\n    }\r\n};\r\nutils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {\r\n    defaults.headers[method] = {};\r\n});\r\nutils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {\r\n    defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);\r\n});\r\nmodule.exports = defaults;\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/defaults.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/env/data.js":
+/*!********************************************!*\
+  !*** ./node_modules/axios/lib/env/data.js ***!
+  \********************************************/
+/***/ ((module) => {
+
+eval("\r\nmodule.exports = {\r\n    \"version\": \"0.26.0\"\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/env/data.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/bind.js":
+/*!************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/bind.js ***!
+  \************************************************/
+/***/ ((module) => {
+
+eval("\r\nmodule.exports = function bind(fn, thisArg) {\r\n    return function wrap() {\r\n        var args = new Array(arguments.length);\r\n        for (var i = 0; i < args.length; i++) {\r\n            args[i] = arguments[i];\r\n        }\r\n        return fn.apply(thisArg, args);\r\n    };\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/helpers/bind.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/buildURL.js":
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/buildURL.js ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\r\nfunction encode(val) {\r\n    return encodeURIComponent(val).\r\n        replace(/%3A/gi, ':').\r\n        replace(/%24/g, '$').\r\n        replace(/%2C/gi, ',').\r\n        replace(/%20/g, '+').\r\n        replace(/%5B/gi, '[').\r\n        replace(/%5D/gi, ']');\r\n}\r\nmodule.exports = function buildURL(url, params, paramsSerializer) {\r\n    if (!params) {\r\n        return url;\r\n    }\r\n    var serializedParams;\r\n    if (paramsSerializer) {\r\n        serializedParams = paramsSerializer(params);\r\n    }\r\n    else if (utils.isURLSearchParams(params)) {\r\n        serializedParams = params.toString();\r\n    }\r\n    else {\r\n        var parts = [];\r\n        utils.forEach(params, function serialize(val, key) {\r\n            if (val === null || typeof val === 'undefined') {\r\n                return;\r\n            }\r\n            if (utils.isArray(val)) {\r\n                key = key + '[]';\r\n            }\r\n            else {\r\n                val = [val];\r\n            }\r\n            utils.forEach(val, function parseValue(v) {\r\n                if (utils.isDate(v)) {\r\n                    v = v.toISOString();\r\n                }\r\n                else if (utils.isObject(v)) {\r\n                    v = JSON.stringify(v);\r\n                }\r\n                parts.push(encode(key) + '=' + encode(v));\r\n            });\r\n        });\r\n        serializedParams = parts.join('&');\r\n    }\r\n    if (serializedParams) {\r\n        var hashmarkIndex = url.indexOf('#');\r\n        if (hashmarkIndex !== -1) {\r\n            url = url.slice(0, hashmarkIndex);\r\n        }\r\n        url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;\r\n    }\r\n    return url;\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/helpers/buildURL.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/combineURLs.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/combineURLs.js ***!
+  \*******************************************************/
+/***/ ((module) => {
+
+eval("\r\nmodule.exports = function combineURLs(baseURL, relativeURL) {\r\n    return relativeURL\r\n        ? baseURL.replace(/\\/+$/, '') + '/' + relativeURL.replace(/^\\/+/, '')\r\n        : baseURL;\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/helpers/combineURLs.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/cookies.js":
+/*!***************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/cookies.js ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\r\nmodule.exports = (utils.isStandardBrowserEnv() ?\r\n    (function standardBrowserEnv() {\r\n        return {\r\n            write: function write(name, value, expires, path, domain, secure) {\r\n                var cookie = [];\r\n                cookie.push(name + '=' + encodeURIComponent(value));\r\n                if (utils.isNumber(expires)) {\r\n                    cookie.push('expires=' + new Date(expires).toGMTString());\r\n                }\r\n                if (utils.isString(path)) {\r\n                    cookie.push('path=' + path);\r\n                }\r\n                if (utils.isString(domain)) {\r\n                    cookie.push('domain=' + domain);\r\n                }\r\n                if (secure === true) {\r\n                    cookie.push('secure');\r\n                }\r\n                document.cookie = cookie.join('; ');\r\n            },\r\n            read: function read(name) {\r\n                var match = document.cookie.match(new RegExp('(^|;\\\\s*)(' + name + ')=([^;]*)'));\r\n                return (match ? decodeURIComponent(match[3]) : null);\r\n            },\r\n            remove: function remove(name) {\r\n                this.write(name, '', Date.now() - 86400000);\r\n            }\r\n        };\r\n    })() :\r\n    (function nonStandardBrowserEnv() {\r\n        return {\r\n            write: function write() { },\r\n            read: function read() { return null; },\r\n            remove: function remove() { }\r\n        };\r\n    })());\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/helpers/cookies.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/isAbsoluteURL.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+eval("\r\nmodule.exports = function isAbsoluteURL(url) {\r\n    return /^([a-z][a-z\\d+\\-.]*:)?\\/\\//i.test(url);\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/helpers/isAbsoluteURL.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/isAxiosError.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isAxiosError.js ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\r\nmodule.exports = function isAxiosError(payload) {\r\n    return utils.isObject(payload) && (payload.isAxiosError === true);\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/helpers/isAxiosError.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/isURLSameOrigin.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\r\nmodule.exports = (utils.isStandardBrowserEnv() ?\r\n    (function standardBrowserEnv() {\r\n        var msie = /(msie|trident)/i.test(navigator.userAgent);\r\n        var urlParsingNode = document.createElement('a');\r\n        var originURL;\r\n        function resolveURL(url) {\r\n            var href = url;\r\n            if (msie) {\r\n                urlParsingNode.setAttribute('href', href);\r\n                href = urlParsingNode.href;\r\n            }\r\n            urlParsingNode.setAttribute('href', href);\r\n            return {\r\n                href: urlParsingNode.href,\r\n                protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',\r\n                host: urlParsingNode.host,\r\n                search: urlParsingNode.search ? urlParsingNode.search.replace(/^\\?/, '') : '',\r\n                hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',\r\n                hostname: urlParsingNode.hostname,\r\n                port: urlParsingNode.port,\r\n                pathname: (urlParsingNode.pathname.charAt(0) === '/') ?\r\n                    urlParsingNode.pathname :\r\n                    '/' + urlParsingNode.pathname\r\n            };\r\n        }\r\n        originURL = resolveURL(window.location.href);\r\n        return function isURLSameOrigin(requestURL) {\r\n            var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;\r\n            return (parsed.protocol === originURL.protocol &&\r\n                parsed.host === originURL.host);\r\n        };\r\n    })() :\r\n    (function nonStandardBrowserEnv() {\r\n        return function isURLSameOrigin() {\r\n            return true;\r\n        };\r\n    })());\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/helpers/isURLSameOrigin.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/normalizeHeaderName.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
+  \***************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar utils = __webpack_require__(/*! ../utils */ \"./node_modules/axios/lib/utils.js\");\r\nmodule.exports = function normalizeHeaderName(headers, normalizedName) {\r\n    utils.forEach(headers, function processHeader(value, name) {\r\n        if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {\r\n            headers[normalizedName] = value;\r\n            delete headers[name];\r\n        }\r\n    });\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/helpers/normalizeHeaderName.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/parseHeaders.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/parseHeaders.js ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axios/lib/utils.js\");\r\nvar ignoreDuplicateOf = [\r\n    'age', 'authorization', 'content-length', 'content-type', 'etag',\r\n    'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',\r\n    'last-modified', 'location', 'max-forwards', 'proxy-authorization',\r\n    'referer', 'retry-after', 'user-agent'\r\n];\r\nmodule.exports = function parseHeaders(headers) {\r\n    var parsed = {};\r\n    var key;\r\n    var val;\r\n    var i;\r\n    if (!headers) {\r\n        return parsed;\r\n    }\r\n    utils.forEach(headers.split('\\n'), function parser(line) {\r\n        i = line.indexOf(':');\r\n        key = utils.trim(line.substr(0, i)).toLowerCase();\r\n        val = utils.trim(line.substr(i + 1));\r\n        if (key) {\r\n            if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {\r\n                return;\r\n            }\r\n            if (key === 'set-cookie') {\r\n                parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);\r\n            }\r\n            else {\r\n                parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;\r\n            }\r\n        }\r\n    });\r\n    return parsed;\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/helpers/parseHeaders.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/spread.js":
+/*!**************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/spread.js ***!
+  \**************************************************/
+/***/ ((module) => {
+
+eval("\r\nmodule.exports = function spread(callback) {\r\n    return function wrap(arr) {\r\n        return callback.apply(null, arr);\r\n    };\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/helpers/spread.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/validator.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/validator.js ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar VERSION = (__webpack_require__(/*! ../env/data */ \"./node_modules/axios/lib/env/data.js\").version);\r\nvar validators = {};\r\n['object', 'boolean', 'number', 'function', 'string', 'symbol'].forEach(function (type, i) {\r\n    validators[type] = function validator(thing) {\r\n        return typeof thing === type || 'a' + (i < 1 ? 'n ' : ' ') + type;\r\n    };\r\n});\r\nvar deprecatedWarnings = {};\r\nvalidators.transitional = function transitional(validator, version, message) {\r\n    function formatMessage(opt, desc) {\r\n        return '[Axios v' + VERSION + '] Transitional option \\'' + opt + '\\'' + desc + (message ? '. ' + message : '');\r\n    }\r\n    return function (value, opt, opts) {\r\n        if (validator === false) {\r\n            throw new Error(formatMessage(opt, ' has been removed' + (version ? ' in ' + version : '')));\r\n        }\r\n        if (version && !deprecatedWarnings[opt]) {\r\n            deprecatedWarnings[opt] = true;\r\n            console.warn(formatMessage(opt, ' has been deprecated since v' + version + ' and will be removed in the near future'));\r\n        }\r\n        return validator ? validator(value, opt, opts) : true;\r\n    };\r\n};\r\nfunction assertOptions(options, schema, allowUnknown) {\r\n    if (typeof options !== 'object') {\r\n        throw new TypeError('options must be an object');\r\n    }\r\n    var keys = Object.keys(options);\r\n    var i = keys.length;\r\n    while (i-- > 0) {\r\n        var opt = keys[i];\r\n        var validator = schema[opt];\r\n        if (validator) {\r\n            var value = options[opt];\r\n            var result = value === undefined || validator(value, opt, options);\r\n            if (result !== true) {\r\n                throw new TypeError('option ' + opt + ' must be ' + result);\r\n            }\r\n            continue;\r\n        }\r\n        if (allowUnknown !== true) {\r\n            throw Error('Unknown option ' + opt);\r\n        }\r\n    }\r\n}\r\nmodule.exports = {\r\n    assertOptions: assertOptions,\r\n    validators: validators\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/helpers/validator.js?");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/utils.js":
+/*!*****************************************!*\
+  !*** ./node_modules/axios/lib/utils.js ***!
+  \*****************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\r\nvar bind = __webpack_require__(/*! ./helpers/bind */ \"./node_modules/axios/lib/helpers/bind.js\");\r\nvar toString = Object.prototype.toString;\r\nfunction isArray(val) {\r\n    return Array.isArray(val);\r\n}\r\nfunction isUndefined(val) {\r\n    return typeof val === 'undefined';\r\n}\r\nfunction isBuffer(val) {\r\n    return val !== null && !isUndefined(val) && val.constructor !== null && !isUndefined(val.constructor)\r\n        && typeof val.constructor.isBuffer === 'function' && val.constructor.isBuffer(val);\r\n}\r\nfunction isArrayBuffer(val) {\r\n    return toString.call(val) === '[object ArrayBuffer]';\r\n}\r\nfunction isFormData(val) {\r\n    return toString.call(val) === '[object FormData]';\r\n}\r\nfunction isArrayBufferView(val) {\r\n    var result;\r\n    if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {\r\n        result = ArrayBuffer.isView(val);\r\n    }\r\n    else {\r\n        result = (val) && (val.buffer) && (isArrayBuffer(val.buffer));\r\n    }\r\n    return result;\r\n}\r\nfunction isString(val) {\r\n    return typeof val === 'string';\r\n}\r\nfunction isNumber(val) {\r\n    return typeof val === 'number';\r\n}\r\nfunction isObject(val) {\r\n    return val !== null && typeof val === 'object';\r\n}\r\nfunction isPlainObject(val) {\r\n    if (toString.call(val) !== '[object Object]') {\r\n        return false;\r\n    }\r\n    var prototype = Object.getPrototypeOf(val);\r\n    return prototype === null || prototype === Object.prototype;\r\n}\r\nfunction isDate(val) {\r\n    return toString.call(val) === '[object Date]';\r\n}\r\nfunction isFile(val) {\r\n    return toString.call(val) === '[object File]';\r\n}\r\nfunction isBlob(val) {\r\n    return toString.call(val) === '[object Blob]';\r\n}\r\nfunction isFunction(val) {\r\n    return toString.call(val) === '[object Function]';\r\n}\r\nfunction isStream(val) {\r\n    return isObject(val) && isFunction(val.pipe);\r\n}\r\nfunction isURLSearchParams(val) {\r\n    return toString.call(val) === '[object URLSearchParams]';\r\n}\r\nfunction trim(str) {\r\n    return str.trim ? str.trim() : str.replace(/^\\s+|\\s+$/g, '');\r\n}\r\nfunction isStandardBrowserEnv() {\r\n    if (typeof navigator !== 'undefined' && (navigator.product === 'ReactNative' ||\r\n        navigator.product === 'NativeScript' ||\r\n        navigator.product === 'NS')) {\r\n        return false;\r\n    }\r\n    return (typeof window !== 'undefined' &&\r\n        typeof document !== 'undefined');\r\n}\r\nfunction forEach(obj, fn) {\r\n    if (obj === null || typeof obj === 'undefined') {\r\n        return;\r\n    }\r\n    if (typeof obj !== 'object') {\r\n        obj = [obj];\r\n    }\r\n    if (isArray(obj)) {\r\n        for (var i = 0, l = obj.length; i < l; i++) {\r\n            fn.call(null, obj[i], i, obj);\r\n        }\r\n    }\r\n    else {\r\n        for (var key in obj) {\r\n            if (Object.prototype.hasOwnProperty.call(obj, key)) {\r\n                fn.call(null, obj[key], key, obj);\r\n            }\r\n        }\r\n    }\r\n}\r\nfunction merge() {\r\n    var result = {};\r\n    function assignValue(val, key) {\r\n        if (isPlainObject(result[key]) && isPlainObject(val)) {\r\n            result[key] = merge(result[key], val);\r\n        }\r\n        else if (isPlainObject(val)) {\r\n            result[key] = merge({}, val);\r\n        }\r\n        else if (isArray(val)) {\r\n            result[key] = val.slice();\r\n        }\r\n        else {\r\n            result[key] = val;\r\n        }\r\n    }\r\n    for (var i = 0, l = arguments.length; i < l; i++) {\r\n        forEach(arguments[i], assignValue);\r\n    }\r\n    return result;\r\n}\r\nfunction extend(a, b, thisArg) {\r\n    forEach(b, function assignValue(val, key) {\r\n        if (thisArg && typeof val === 'function') {\r\n            a[key] = bind(val, thisArg);\r\n        }\r\n        else {\r\n            a[key] = val;\r\n        }\r\n    });\r\n    return a;\r\n}\r\nfunction stripBOM(content) {\r\n    if (content.charCodeAt(0) === 0xFEFF) {\r\n        content = content.slice(1);\r\n    }\r\n    return content;\r\n}\r\nmodule.exports = {\r\n    isArray: isArray,\r\n    isArrayBuffer: isArrayBuffer,\r\n    isBuffer: isBuffer,\r\n    isFormData: isFormData,\r\n    isArrayBufferView: isArrayBufferView,\r\n    isString: isString,\r\n    isNumber: isNumber,\r\n    isObject: isObject,\r\n    isPlainObject: isPlainObject,\r\n    isUndefined: isUndefined,\r\n    isDate: isDate,\r\n    isFile: isFile,\r\n    isBlob: isBlob,\r\n    isFunction: isFunction,\r\n    isStream: isStream,\r\n    isURLSearchParams: isURLSearchParams,\r\n    isStandardBrowserEnv: isStandardBrowserEnv,\r\n    forEach: forEach,\r\n    merge: merge,\r\n    extend: extend,\r\n    trim: trim,\r\n    stripBOM: stripBOM\r\n};\r\n\n\n//# sourceURL=webpack://mentalist/./node_modules/axios/lib/utils.js?");
 
 /***/ }),
 
@@ -147,6 +447,18 @@ eval("\r\nif (false) {}\r\nelse {\r\n    module.exports = __webpack_require__(/*
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
