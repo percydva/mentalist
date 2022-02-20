@@ -1,8 +1,9 @@
+import json
 from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.response import Response
 from .serializers import HackerSerializer, SpeechSerializer
-
+from .nlp_model import dblr, train
 from .models import Hacker, Speech
 
 
@@ -18,12 +19,13 @@ class SpeechView(generics.ListCreateAPIView):
     def post(self, request):
         serializer = SpeechSerializer(data=request.data)
         if serializer.is_valid():
-
-            #TODO: use NLP model here
             serializer.save()
-            # print(serializer.data)'''
-
-            #TODO: return result from model
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            print(serializer.data['speech'])
+            model = dblr.load_model()
+            features = dblr.tokenize_text(serializer.data['speech'])
+            prediction = model.predict(features)[0]
+            print(prediction)
+            return Response(data=prediction, status=status.HTTP_201_CREATED)
+            # return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
