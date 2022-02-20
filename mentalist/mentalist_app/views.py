@@ -20,7 +20,7 @@ class SpeechView(generics.ListCreateAPIView):
         if serializer.is_valid():
 
             #TODO: use NLP model here
-            ''' serializer.save()
+            serializer.save()
             # print(serializer.data)'''
 
             #TODO: return result from model
